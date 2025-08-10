@@ -11,6 +11,9 @@ import ClinicalSuspicionSection from './components/ClinicalSuspicionSection';
 import ResultSection from './components/ResultSection';
 import ProtocolModal from './components/ProtocolModal';
 import Toast from './components/Toast';
+import { Analytics } from "@vercel/analytics/react";
+
+//import './index.css';
 
 const initialFormData: Omit<AnamnesisFormData, 'nome'> = {
   gestacoes: '0', partos: '0', cesareas: '0', abortos: '0',
@@ -130,6 +133,7 @@ const App: React.FC = () => {
         protocol={currentProtocol}
       />
       {toastMessage && <Toast message={toastMessage} onDone={() => setToastMessage('')} />}
+      <Analytics />
     </div>
   );
 };
